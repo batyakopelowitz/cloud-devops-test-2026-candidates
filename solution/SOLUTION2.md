@@ -1,4 +1,4 @@
-## Problem 2 : Backup and recovery
+## Problem 2 – Backup and recovery
 
 ### Risk
 - **DB:** One daily backup, PITR disabled. Effective RPO is up to 24 hours versus the 15 minutes target.

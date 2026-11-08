@@ -1,7 +1,7 @@
 
-## Problem 1 : Service interruptions
+## Problem 1 – Service interruptions
 
-### A : Releases and node maintenance
+### A – Releases and node maintenance
 
 **Risk**
 
@@ -70,7 +70,7 @@ Assumes the API exposes a lightweight `/healthz` endpoint.
 - **Node maintenance:** under the same load, run `kubectl drain <node> --ignore-daemonsets`, expect the PDB to keep one pod serving and zero 5XX responses.
 - **Bad release:** deploy an image that fails the readiness probe, expect the rollout to stop, old pods keep serving, and `kubectl rollout status` to time out.
 
-### B : Zone outage
+### B – Zone outage
 
 **Risk**
 
@@ -89,5 +89,7 @@ topologySpreadConstraints:                 # one API pod per zone
     whenUnsatisfiable: ScheduleAnyway      # still schedule if a zone is down
     labelSelector: { matchLabels: { app: api } }
 ```
+
+Apply the same replicas, probes and spread to the web frontend, so users can still reach the site.
 
 - **Cloud SQL:** enable High Availability (regional instance): a standby in another zone with synchronous replication and automatic failover to the same private IP (about one minute of downtime). The API must retry database connections.

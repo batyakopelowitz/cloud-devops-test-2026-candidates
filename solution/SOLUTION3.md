@@ -1,4 +1,4 @@
-## Problem 3 - Linux pipeline agent: "No space left on device"
+## Problem 3 – Linux pipeline agent: "No space left on device"
 
 ### Cause / risk
 - The root disk is full. Docker uses 76G (old images, build cache and stopped containers,
@@ -14,7 +14,7 @@ df -h /                                         # disk usage
 df -i /                                         # inodes ("no space" can also mean no free inodes)
 sudo du -xh --max-depth=1 / | sort -h           # find the missing ~7G across the whole disk
 sudo journalctl --disk-usage                    # size of system logs
-sudo lsof | grep deleted                        # deleted files still held open by a process
+sudo lsof +L1                                   # deleted files still held open by a process
 docker system df                                # images / containers / volumes / build cache
 sudo du -h --max-depth=1 /opt/ado-agent/_work | sort -h   # old pipeline workspaces
 ```

@@ -1,4 +1,4 @@
-## Problem 4 : Failed release
+## Problem 4 – Failed release
 
 **Risk**
 

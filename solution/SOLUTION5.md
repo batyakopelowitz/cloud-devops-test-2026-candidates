@@ -1,4 +1,4 @@
-## Problem 5 : Git controls
+## Problem 5 – Git controls
 
 **Risk**
 
@@ -45,7 +45,7 @@ If the last release broke production, roll back first (Problem 4), then fix. **E
 2. Enable the branch policies (build validation *Optional* for a day, then *Required*) and remove force push and bypass from Contributors.
 3. Add the Approvals and Branch control checks to the `production` environment.
 
-**Verification** (proposed, not tested)
+**Verification** (branch and PR flow tested on GitHub; Azure DevOps policies proposed only)
 
 - `git push origin main` is rejected.
 - A PR with a failing test or no second approval can't be completed.
